@@ -1,0 +1,27 @@
+.btn-success{
+    align:right;
+    float:right;
+}
+
+body {
+    position: relative;
+
+}
+#p0, #p1, #p2 {
+    height: auto ;
+    padding-top: 20%;
+    margin-bottom: auto;
+}
+
+.head{
+    color:blue;
+}
+
+img{
+    width:800px;
+    height:auto;
+}
+
+.home{
+    padding-top: 50px;
+}

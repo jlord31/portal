@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        //$('.card').css('margin-top', 30);
+            $('#add').click(function(e){
+                e.preventDefault();
+                //let input = 10;
+                let temp_html = '';
+                    temp_html += '<div class="form-group" id="build"><div class="card"><div class="row"><div class="col-md-4"><div class="form-group"><label>Skills: </label><input type="text" name="skills[]" id="skills" class="form-control" placeholder="skills"></div></div><div class="col-md-4"><div class="form-group"><label>Select skill level</label><select class="form-control" name="slevel[]"  id="slevel"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div></div><div class="col-md-4"><div class="form-group"><label> Years of professional experience </label><select class="form-control" name="yearsPro[]" id="yearsPro"><option> less than 1year </option><option> 2 - 5 years </option><option> 5 - 10 years </option><option> 10 years above </option></select></div></div></div></div><button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button></div>';
+
+                $('#build').append(temp_html);
+            });
+            $(document).on('click', '.remove', function () {
+                $(this).closest('#build').remove();
+            });
+        });
+    </script>
+    <style type="text/css">
+    
+    </style>
+</head>
+<body data-spy="scroll" data-offset="20">
+<div class="container">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#ph">Home</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#p0">Recruitment portal</a></li>
+            <li><a href="#p1">Contact</a></li>
+            <li><a href="#p2">About</a></li>
+            <li><a href="php/test.php">Admin page</a></li>
+        </ul>
+    </nav>
+
+    <div id="ph">
+        <div class="form-group home">
+        <img src ="img/job_img.jpg" >
+        </div>
+    </div>
+
+    <div id="p0">
+        <h1 class="head"> Job Recruitment Portal </h1>
+        <form action="php/index.php" enctype="multipart/form-data" method="post">
+            <div class="form-group">
+                <label for="name">Enter Full Name: </label>
+                <input type="text" class="form-control" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <label for="name">Enter Contact Number: </label>
+                <input type="text" class="form-control" name="phone" id="phone">
+            </div>
+            <div class="form-group">
+                <label for="file">Upload credentials:</label>
+                <input type="file" class="form-control" name="file" id="file">
+            </div>
+            <div class="form-group">
+                <label for="skillset">Describe Skill Set:</label>
+                <textarea class="form-control" rows="5" name="skillset" id="skillset"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="sellist">Select Overall Skill Proficiency:</label>
+                <select class="form-control" name="sellist" id="sellist">
+                    <option selected>Select</option>
+                    <option>Beginner</option>
+                    <option>Intermediate</option>
+                    <option>Advanced</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label> Select How Many Years Have You Been Into Software Development </label> <br>
+                <label class="form-control-label"><input type="radio" class="custom-radio" name="rb" value="< 1year"> < 1year </label> <br>
+                <label class="form-control-label"><input type="radio" class="custom-radio" name="rb" value="2 - 5 years"> 2 - 5 years </label> <br>
+                <label class="form-control-label"><input type="radio" class="custom-radio" name="rb" value="5 - 10 years">  5 - 10 years</label> <br>
+                <label class="form-control-label"> <input name="rb" class="custom-radio" type="radio" value="> 10 years"> > 10 years</label>
+            </div>
+
+
+
+
+
+            <div class="form-group" id="build">
+                <div class="card">
+                    <small> Add Proficient Skills </small>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Skills: </label>
+                                <input type="text" id="skills" name="skills[]" class="form-control" placeholder="skills">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Select skill level</label>
+                                <select class="form-control"  name="slevel[]"  id="slevel">
+                                    <option>Beginner</option>
+                                    <option>Intermediate</option>
+                                    <option>Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Years of professional experience </label>
+                                <select class="form-control" name="yearsPro[]" id="yearsPro">
+                                    <option> less than 1year</option>
+                                    <option>2 - 5 years</option>
+                                    <option>5 - 10 years</option>
+                                    <option>10 years above</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-info" id="add">Add skills</button>
+                <button type="submit" name="submit" class="btn btn-success" >Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="p1">
+        <h1 class="head"> Contact us </h1>
+        <form>
+            <p class="bg-info"> we love to hear from you!</p>
+            <div class="form-group">
+                <label for="fname">First Name: </label>
+                <input type="text" class="form-control" id="fname" autofocus placeholder="your name..">
+            </div>
+
+            <div class="form-group">
+                <label for="lname">Last Name: </label>
+                <input type="text" class="form-control" id="lname" autofocus placeholder="Last name">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" rows="5" id="message" placeholder="Enter your message"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-success" onclick="contact_validation()">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+
+    <div id="p2">
+        <h3 class="head">About us</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+            Aenean commodo ligula eget dolor.
+            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+            Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+            Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+            Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
+            Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
+            Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero,
+            sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
+            Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
+            Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.
+            Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+            Aenean commodo ligula eget dolor.
+            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+            Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+            Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+            Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
+            Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
+            Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero,
+            sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
+            Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
+            Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.
+            Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+            Aenean commodo ligula eget dolor.
+            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+            Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+            Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+            Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
+            Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
+            Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero,
+            sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
+            Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
+            Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.
+            Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+        </p>
+    </div>
+
+</div>
+    <!-- Footer -->
+    <footer class="page-footer font-small special-color-dark pt-4">
+
+        <!-- Footer Elements -->
+        <div class="container">
+
+            
+
+        </div>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright  text-center py-3">© 2020 Copyright:
+            <a href=""> JoeTech</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+</body>
+</html>

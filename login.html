@@ -1,0 +1,32 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- Include CSS File Here -->
+	<link rel="stylesheet" href="css/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<!-- Include JS File Here -->
+	<script type="text/javascript" src="js/login.js">
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="main">
+			<h2>Admin Login</h2>
+			<form id="form_id" method="post" name="myform">
+				<label>User Name :</label>
+				<input type="text" name="username" id="username"/>
+				<label>Password :</label>
+				<input type="password" name="password" id="password"/>
+				<input type="button" value="Login" id="submit" onclick="validate()"/>
+			</form>
+			<span><b class="note">Note : </b><p>Please ensure you enter correct login details. This form is disabled after <kbd>3</kbd>  attempt</p><br/></span>
+		</div>
+	</div>
+</body>
+</html>

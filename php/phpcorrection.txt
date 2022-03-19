@@ -1,0 +1,118 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "project";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+//echo "Connected successfully";
+
+
+ if(isset($_POST['submit']))
+    {
+    	//$name = isset($_POST['name']) ? $_POST['name'] : '';
+		//$skillset = isset($_POST['skillset']) ? $_POST['skillset'] : '';
+		//$year = isset($_POST['year']) ? $_POST['year'] : '';
+
+    	$name= $_POST['name'];
+        $skillset=$_POST['skillset'];
+        $file=$_FILES['file']['name'];
+        $sellist=$_POST['sellist'];
+        $developmentYears = $_POST['rb'];
+        $phone_no = $_POST['phone'];
+        $skills = $_POST["skills"];
+        $slevel = $_POST["slevel"];
+        $yearsPro = $_POST["yearsPro"];
+		
+		$tmp_name = $_FILES['file']['tmp_name'];
+
+		$submitbutton = $_POST['submit'];
+
+		$position = strpos($name, "."); 
+
+		$fileextension = substr($name, $position + 1);
+
+		$fileextension = strtolower($fileextension);
+
+		$path ='uploads/';
+
+		$itemCount = count($_POST["skills"]);
+		$itemValues=0;
+		
+
+       if(!empty($name) && !empty($skillset) ){
+        	if (move_uploaded_file($tmp_name, $path.$file)) {
+        		//if($itemCount > 1){
+	        		$sql = "INSERT INTO `applicantinformation`(`name`,`phone_no`, `cv`, `skillset`,`overall_proficiency`, `developmentYears`, `skills`, `skillLevel`, `experience`) VALUES ('$name','$phone_no','$file','$skillset','$sellist','$developmentYears','','','')";
+	        		$result = mysql_query($sql);
+	        		if (!$result) {
+	        			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	        		}
+	        		else{
+
+	        		foreach ($skills as $key => $value) {
+	        		//	if (trim($_POST['skills'][$key]) != '') {
+	        				/*$sql = "INSERT INTO `skills_table`(`phone_no`, `Skills`, `Skill_level`, `pro_experience`) VALUES ('$phone_no','','','')";*/
+				$sql = "INSERT INTO skills_table (phone_no,Skills,Skill_level,pro_experience) 
+							VALUES ('$phone_no','"
+							. mysqli_real_escape_string($conn, $_POST["skills"][$i]) .
+							"','"
+							. mysqli_real_escape_string($conn, $_POST["slevel"][$i]) .
+							"','"
+							. mysqli_real_escape_string($conn, $_POST["yearsPro"][$i]) .
+							"') 
+							";	
+	        			}
+							//$result2 = mysql_query($sql2);
+	        	//	}
+	        		//echo "data inserted into skills_table" + "<br>" ;
+	        	/*	$SQL = "INSERT INTO skills_table (phone_no,Skills,Skill_level,pro_experience,) VALUES ";
+					$queryValue = "";
+					for($i=0;$i<$itemCount;$i++) {
+						if(!empty($_POST["skills"][$i])) {
+							$itemValues++;
+							if($queryValue!="") {
+								$queryValue .= ",";
+							}
+							$queryValue .= "()";
+						}
+					}*/
+
+					$result = mysql_query($conn,$sql);
+					//if($itemValues!=0) {
+			       	if ( !$result) {
+			       		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			                
+			           }
+
+			            else {
+			  				echo "You have sucessfully Registered for the recruitment ";
+						}	
+					}			
+					//}
+				//}
+			}
+       }
+        else {
+    		echo 'Please fill out all fields';
+        }
+}
+
+
+
+		/*$sql2 = $query.$queryValue;
+		
+		    $result = mysqli_query($conn, $sql2);
+			if(!empty($result)) $message = "Added Successfully.";
+		}*/
+	
+mysqli_close($conn);
+
+?>

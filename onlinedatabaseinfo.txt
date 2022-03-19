@@ -1,0 +1,9 @@
+//database information for project on 000webhost.com
+
+dbname---id14494717_project
+
+dbuser----id14494717_root
+
+dbhost---localhost
+
+password----Jlord_#2020k
