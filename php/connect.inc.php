@@ -15,7 +15,7 @@ if (!$conn) {
 //echo "This Connection works perfectly! ";
 */
 
-
+// DB Connection 
 $conn_error = 'Connection failed!';
 $mysql_host = 'localhost';
 $mysql_user = 'root';
