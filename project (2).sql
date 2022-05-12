@@ -6,6 +6,7 @@
 -- Generation Time: Jul 25, 2020 at 10:17 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
+-- DB DDL
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
