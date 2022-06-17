@@ -1,5 +1,5 @@
 <?php
-       // DB connection file
+       // DB connect file
 	require 'php/connect.inc.php';
 
 	$output = NULL;
