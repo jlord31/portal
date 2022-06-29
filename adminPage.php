@@ -1,5 +1,6 @@
 
 <?php
+    // connection
     require 'php/connect.inc.php';
 
     $output = NULL;
